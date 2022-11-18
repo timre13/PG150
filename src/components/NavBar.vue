@@ -1,11 +1,55 @@
 <template>
-    <div id="navbar"></div>
+    <div id="navbarcont">
+        <a class="imagecont">
+            <img src="../assets/logo150.png" class="logo" alt="logo" title="PG150" />
+        </a>
+        <nav id="navbar">
+            <a class="menu-item">&blacktriangleleft;Tanítóképző</a>
+            <a class="menu-item">&blacktriangleleft;Testnevelési Gimnázium</a>
+            <a class="menu-item">&blacktriangleleft;Petőfi Gimnázium</a>
+            <a class="menu-item">&blacktriangleleft;Gépészeti Szakközépiskola</a>
+            <a class="menu-item">&blacktriangleleft;Szent Benedek Technikum</a>
+            <a class="menu-item">Mozaik</a>
+        </nav>
+    </div>
 </template>
 
 <script setup lang="ts"></script>
 
 <style lang="scss">
-    #navbar {
+    #navbarcont {
+        background-color: hsl(0, 0%, 80%);
         width: 10rem;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        .imagecont {
+            display: block;
+            justify-self: flex-start;
+            width: 100%;
+            cursor: pointer;
+            img {
+                width: 100%;
+                pointer-events: none;
+            }
+        }
+        #navbar {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            color: hsl(0, 0%, 00%);
+
+            .menu-item {
+                cursor: pointer;
+                width: 100%;
+                padding: 1rem;
+
+                &:hover {
+                    background-color: darken(hsl(0, 0%, 80%), 10);
+                }
+            }
+        }
     }
 </style>
