@@ -46,8 +46,22 @@
                 width: 100%;
                 padding: 1rem;
 
-                &:hover {
-                    background-color: darken(hsl(0, 0%, 80%), 10);
+                @for $i from 1 through length($chapter-colors1) {
+                    &:nth-of-type(#{$i}) {
+                        color: nth($chapter-colors2, $i);
+                        background: linear-gradient(90deg,
+                            nth($chapter-colors1, $i) 50%, 
+                            scale-color(nth($chapter-colors1, $i), $saturation: 30%, $lightness: 30%) 50%);
+                        background-size: 200% 200%;
+                        transition-duration: 200ms;
+                        transition-property: background-position-x, color;
+                        transition-timing-function: ease-in;
+
+                        &:hover {
+                            background-position-x: 100%;
+                            color: white;
+                        }
+                    }
                 }
             }
         }
