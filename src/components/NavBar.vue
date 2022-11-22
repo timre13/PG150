@@ -4,20 +4,23 @@
             <img src="../assets/logo150.png" class="logo" alt="logo" title="PG150" />
         </a>
         <nav id="navbar">
-            <a class="menu-item">&blacktriangleleft;Tanítóképző</a>
-            <a class="menu-item">&blacktriangleleft;Testnevelési Gimnázium</a>
-            <a class="menu-item">&blacktriangleleft;Petőfi Gimnázium</a>
-            <a class="menu-item">&blacktriangleleft;Gépészeti Szakközépiskola</a>
-            <a class="menu-item">&blacktriangleleft;Szent Benedek Technikum</a>
-            <a class="menu-item">Mozaik</a>
+            <NavMenuItem class="menu-item" text="Tanítóképző"></NavMenuItem>
+            <NavMenuItem class="menu-item" text="Testnevelési Gimnázium"></NavMenuItem>
+            <NavMenuItem class="menu-item" text="Petőfi Gimnázium"></NavMenuItem>
+            <NavMenuItem class="menu-item" text="Gépészeti Szakközépiskola"></NavMenuItem>
+            <NavMenuItem class="menu-item" text="Szent Benedek Technikum"></NavMenuItem>
+            <NavMenuItem class="menu-item" text="Mozaik" dest="/"></NavMenuItem>
         </nav>
     </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+    import NavMenuItem from "./NavMenuItem.vue";
+</script>
 
 <style lang="scss">
     #navbarcont {
+        position: relative;
         background-color: hsl(0, 0%, 80%);
         width: 10rem;
         display: flex;
@@ -49,9 +52,11 @@
                 @for $i from 1 through length($chapter-colors1) {
                     &:nth-of-type(#{$i}) {
                         color: nth($chapter-colors2, $i);
-                        background: linear-gradient(90deg,
-                            nth($chapter-colors1, $i) 50%, 
-                            scale-color(nth($chapter-colors1, $i), $saturation: 30%, $lightness: 30%) 50%);
+                        background: linear-gradient(
+                            90deg,
+                            nth($chapter-colors1, $i) 50%,
+                            scale-color(nth($chapter-colors1, $i), $saturation: 30%, $lightness: 30%) 50%
+                        );
                         background-size: 200% 200%;
                         transition-duration: 200ms;
                         transition-property: background-position-x, color;
