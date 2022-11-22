@@ -61,12 +61,12 @@
                         transition-duration: 200ms;
                         transition-property: background-position-x, color;
                         transition-timing-function: ease-in;
-
-                        &:hover {
-                            background-position-x: 100%;
-                            color: white;
-                        }
                     }
+                }
+
+                &:hover {
+                    background-position-x: 100%;
+                    color: white;
                 }
             }
         }
