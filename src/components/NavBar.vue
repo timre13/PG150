@@ -7,8 +7,8 @@
             <NavMenuItem class="menu-item" text="Tanítóképző"></NavMenuItem>
             <NavMenuItem class="menu-item" text="Testnevelési Gimnázium"></NavMenuItem>
             <NavMenuItem class="menu-item" text="Petőfi Gimnázium"></NavMenuItem>
-            <NavMenuItem class="menu-item" text="Gépészeti Szakközépiskola"></NavMenuItem>
-            <NavMenuItem class="menu-item" text="Szent Benedek Technikum"></NavMenuItem>
+            <NavMenuItem class="menu-item" :opens-up="true" text="Gépészeti Szakközépiskola"></NavMenuItem>
+            <NavMenuItem class="menu-item" :opens-up="true" text="Szent Benedek Technikum"></NavMenuItem>
             <NavMenuItem class="menu-item" text="Mozaik" dest="/"></NavMenuItem>
         </nav>
     </div>
@@ -51,6 +51,8 @@
 
                 @for $i from 1 through length($chapter-colors1) {
                     &:nth-of-type(#{$i}) {
+                        $offset-color: nth($chapter-colors2, $i);
+                        $main-color: nth($chapter-colors1, $i);
                         color: nth($chapter-colors2, $i);
                         background: linear-gradient(
                             90deg,
@@ -61,6 +63,13 @@
                         transition-duration: 200ms;
                         transition-property: background-position-x, color;
                         transition-timing-function: ease-in;
+
+                        .main-color-background {
+                            background-color: $main-color;
+                        }
+                        .offset-color-background {
+                            background-color: $offset-color;
+                        }
                     }
                 }
 
