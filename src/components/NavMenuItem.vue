@@ -46,7 +46,6 @@
     });
 
     const showSubMenu = ref(false);
-    const windowWidth = ref(window.innerWidth);
 
     function onClick(e: MouseEvent) {
         if (props.dest != undefined) {
@@ -58,17 +57,13 @@
             (e.target as HTMLElement).classList.contains("submenu") ||
             (e.target as HTMLElement).classList.contains("filter")
         ) {
-            console.log("ret");
             return;
         }
         showSubMenu.value = !showSubMenu.value;
     }
 
     onMounted(() => {
-        window.onresize = () => {
-            windowWidth.value = window.innerWidth;
-        };
-        document.querySelector("#navbarcont")?.addEventListener("mouseup", e => {
+        document.addEventListener("mouseup", e => {
             const target = e.target as HTMLElement;
             if (
                 target.getAttribute("iden") != props.text &&
@@ -80,9 +75,6 @@
             ) {
                 if (showSubMenu.value) showSubMenu.value = false;
             }
-        });
-        document.querySelector(".view")?.addEventListener("mouseup", () => {
-            if (showSubMenu.value) showSubMenu.value = false;
         });
     });
 </script>

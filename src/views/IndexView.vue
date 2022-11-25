@@ -1,6 +1,11 @@
 <template>
     <main>
-        <h1>Hello World</h1>
+        <h1>
+            Hello World Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, dolore beatae dolor excepturi
+            quod voluptas! Accusantium odit reprehenderit laudantium obcaecati optio omnis dicta consequuntur tempore
+            voluptatem dolorem, eveniet quasi, vel voluptatibus minima asperiores nulla repudiandae debitis magni aut
+            minus necessitatibus.
+        </h1>
     </main>
 </template>
 

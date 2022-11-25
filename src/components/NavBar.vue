@@ -1,28 +1,93 @@
 <template>
-    <div id="navbarcont">
-        <a class="imagecont">
-            <img src="../assets/logo150.png" class="logo" alt="logo" title="PG150" />
-        </a>
-        <nav id="navbar">
-            <NavMenuItem class="menu-item" text="Tanítóképző"></NavMenuItem>
-            <NavMenuItem class="menu-item" text="Testnevelési Gimnázium"></NavMenuItem>
-            <NavMenuItem class="menu-item" text="Petőfi Gimnázium"></NavMenuItem>
-            <NavMenuItem class="menu-item" :opens-up="true" text="Gépészeti Szakközépiskola"></NavMenuItem>
-            <NavMenuItem class="menu-item" :opens-up="true" text="Szent Benedek Technikum"></NavMenuItem>
-            <NavMenuItem class="menu-item" text="Mozaik" dest="/"></NavMenuItem>
-        </nav>
+    <div id="wrapper">
+        <div v-if="windowWidth < 602" id="menu-button-cont">
+            <div id="menu-container">
+                <div id="menu" @click="showNav = !showNav">
+                    <MenuIcon class="icon" />
+                </div>
+            </div>
+        </div>
+        <Transition name="slide">
+            <div id="navbarcont" :class="windowWidth > 602 ? 'float' : ''" v-if="windowWidth > 602 || showNav">
+                <a class="imagecont">
+                    <img src="../assets/logo150.png" class="logo" alt="logo" title="PG150" />
+                </a>
+                <nav id="navbar">
+                    <NavMenuItem class="menu-item" text="Tanítóképző"></NavMenuItem>
+                    <NavMenuItem class="menu-item" text="Testnevelési Gimnázium"></NavMenuItem>
+                    <NavMenuItem class="menu-item" text="Petőfi Gimnázium"></NavMenuItem>
+                    <NavMenuItem class="menu-item" :opens-up="true" text="Gépészeti Szakközépiskola"></NavMenuItem>
+                    <NavMenuItem class="menu-item" :opens-up="true" text="Szent Benedek Technikum"></NavMenuItem>
+                    <NavMenuItem class="menu-item" text="Mozaik" dest="/"></NavMenuItem>
+                </nav>
+            </div>
+        </Transition>
     </div>
 </template>
 
 <script setup lang="ts">
+    import { onMounted, ref } from "vue";
     import NavMenuItem from "./NavMenuItem.vue";
+    import MenuIcon from "./MenuIcon.vue";
+
+    const windowWidth = ref(window.innerWidth);
+    const showNav = ref(false);
+
+    onMounted(() => {
+        window.onresize = () => {
+            console.log("asd");
+            windowWidth.value = window.innerWidth;
+        };
+    });
 </script>
 
 <style lang="scss">
+    #wrapper {
+        display: flex;
+        height: 100vh;
+        align-items: stretch;
+        position: sticky;
+        right: 0;
+        top: 0;
+    }
+    #menu-button-cont {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        #menu-container {
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 1rem;
+
+            #menu {
+                background-color: white;
+                border: 2px solid black;
+                box-sizing: border-box;
+                padding: 0.3rem;
+                display: grid;
+                place-items: center;
+                border-radius: 0.3rem;
+                aspect-ratio: 1 / 1;
+                cursor: pointer;
+                &:active {
+                    transform: translate(1px, 2px);
+                }
+                .icon {
+                    width: 1.5rem;
+                    pointer-events: none;
+                }
+            }
+        }
+    }
     #navbarcont {
         position: relative;
-        background-color: hsl(0, 0%, 80%);
         width: 10rem;
+        height: 100vh;
+        background-color: hsl(0, 0%, 80%);
         display: flex;
         flex-direction: column;
         text-align: center;
@@ -79,5 +144,23 @@
                 }
             }
         }
+    }
+    .slide-enter-active,
+    .slide-leave-active {
+        transition: transform 0.4s ease;
+        z-index: 1;
+    }
+
+    .slide-enter-from {
+        transform: TranslateX(100%);
+    }
+
+    .slide-leave-from,
+    .slide-enter-to {
+        transform: TranslateX(0%);
+    }
+
+    .slide-leave-to {
+        transform: TranslateX(100%);
     }
 </style>
