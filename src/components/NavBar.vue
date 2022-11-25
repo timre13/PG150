@@ -87,7 +87,7 @@
         position: relative;
         width: 10rem;
         height: 100vh;
-        background-color: hsl(0, 0%, 80%);
+        background-color: hsla(0, 0%, 0%, 0.378);
         display: flex;
         flex-direction: column;
         text-align: center;
