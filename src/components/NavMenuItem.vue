@@ -27,7 +27,7 @@
 
 <script setup lang="ts">
     import router from "@/router";
-    import { onMounted, ref } from "vue";
+    import { onMounted, onUnmounted, ref } from "vue";
 
     const props = defineProps({
         text: {
@@ -62,20 +62,28 @@
         showSubMenu.value = !showSubMenu.value;
     }
 
+    const funct = (e: MouseEvent | TouchEvent) => {
+        const target = e.target as HTMLElement;
+        if (
+            target.getAttribute("iden") != props.text &&
+            !(
+                target.parentElement?.classList.contains("submenu") ||
+                target.classList.contains("submenu") ||
+                target.classList.contains("filter")
+            )
+        ) {
+            if (showSubMenu.value) showSubMenu.value = false;
+        }
+    };
+
     onMounted(() => {
-        document.addEventListener("mouseup", e => {
-            const target = e.target as HTMLElement;
-            if (
-                target.getAttribute("iden") != props.text &&
-                !(
-                    target.parentElement?.classList.contains("submenu") ||
-                    target.classList.contains("submenu") ||
-                    target.classList.contains("filter")
-                )
-            ) {
-                if (showSubMenu.value) showSubMenu.value = false;
-            }
-        });
+        document.addEventListener("mouseup", funct);
+        document.addEventListener("touchend", funct);
+    });
+
+    onUnmounted(() => {
+        document.removeEventListener("mouseup", funct);
+        document.removeEventListener("touchend", funct);
     });
 </script>
 

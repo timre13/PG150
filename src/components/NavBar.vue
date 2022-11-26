@@ -1,5 +1,5 @@
 <template>
-    <div id="wrapper">
+    <div :class="windowWidth < 602 ? 'float' : ''" id="wrapper">
         <div v-if="windowWidth < 602" id="menu-button-cont">
             <div id="menu-container">
                 <div id="menu" @click="showNav = !showNav">
@@ -8,7 +8,7 @@
             </div>
         </div>
         <Transition name="slide">
-            <div id="navbarcont" :class="windowWidth > 602 ? 'float' : ''" v-if="windowWidth > 602 || showNav">
+            <div id="navbarcont" v-if="windowWidth > 602 || showNav">
                 <a class="imagecont">
                     <img src="../assets/logo150.png" class="logo" alt="logo" title="PG150" />
                 </a>
@@ -26,18 +26,28 @@
 </template>
 
 <script setup lang="ts">
-    import { onMounted, ref } from "vue";
+    import { onMounted, onUnmounted, ref } from "vue";
     import NavMenuItem from "./NavMenuItem.vue";
     import MenuIcon from "./MenuIcon.vue";
 
     const windowWidth = ref(window.innerWidth);
     const showNav = ref(false);
 
+    const funct = () => {
+        if (showNav.value) showNav.value = false;
+    };
+
     onMounted(() => {
         window.onresize = () => {
-            console.log("asd");
             windowWidth.value = window.innerWidth;
         };
+        document.querySelector(".view")?.addEventListener("mouseup", funct);
+        document.querySelector(".view")?.addEventListener("touchend", funct);
+    });
+
+    onUnmounted(() => {
+        document.querySelector(".view")?.removeEventListener("mouseup", funct);
+        document.querySelector(".view")?.removeEventListener("touchend", funct);
     });
 </script>
 
@@ -49,6 +59,10 @@
         position: sticky;
         right: 0;
         top: 0;
+
+        &.float {
+            position: fixed;
+        }
     }
     #menu-button-cont {
         height: 100%;
