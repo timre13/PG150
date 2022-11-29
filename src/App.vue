@@ -21,6 +21,7 @@
 
         .view {
             flex: 1;
+            background-color: hsl(0, 0%, 95%);
         }
     }
 </style>
