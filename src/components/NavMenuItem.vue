@@ -1,25 +1,25 @@
 <template>
     <div :iden="props.text" class="cont" @click="onClick">
-        <span class="text"> {{ props.dest == undefined ? "&blacktriangleleft;" : "" }} {{ props.text }}</span>
+        <span class="text"> {{ props.hasSub ? "&blacktriangleleft;" : "" }} {{ props.text }}</span>
         <Transition name="submenu">
             <div class="submenu offset-color-background" :class="props.opensUp ? 'up' : 'down'" v-if="showSubMenu">
                 <div class="marker main-color-background"></div>
-                <div class="submenu-item">
+                <RouterLink :to="`/${props.dest}/emlekek`" class="submenu-item">
                     Emlékeink
                     <div class="filter"></div>
-                </div>
-                <div class="submenu-item">
+                </RouterLink>
+                <RouterLink :to="`/${props.dest}/osztalyok`" class="submenu-item">
                     Osztályok
                     <div class="filter"></div>
-                </div>
-                <div class="submenu-item">
+                </RouterLink>
+                <RouterLink :to="`/${props.dest}/tablok`" class="submenu-item">
                     Tablók
                     <div class="filter"></div>
-                </div>
-                <div class="submenu-item">
+                </RouterLink>
+                <RouterLink :to="`/${props.dest}/videok`" class="submenu-item">
                     Videók
                     <div class="filter"></div>
-                </div>
+                </RouterLink>
             </div>
         </Transition>
     </div>
@@ -27,6 +27,7 @@
 
 <script setup lang="ts">
     import router from "@/router";
+    import { RouterLink } from "vue-router";
     import { onMounted, onUnmounted, ref } from "vue";
 
     const props = defineProps({
@@ -36,7 +37,11 @@
         },
         dest: {
             type: String,
-            required: false,
+            required: true,
+        },
+        hasSub: {
+            type: Boolean,
+            required: true,
         },
         opensUp: {
             type: Boolean,
@@ -48,7 +53,7 @@
     const showSubMenu = ref(false);
 
     function onClick(e: MouseEvent) {
-        if (props.dest != undefined) {
+        if (!props.hasSub) {
             router.push(props.dest);
             return;
         }
@@ -129,6 +134,7 @@
 
             .submenu-item {
                 position: relative;
+                text-decoration: none;
                 padding: 2rem;
                 color: black;
                 font-weight: 500;

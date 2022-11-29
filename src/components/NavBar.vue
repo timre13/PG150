@@ -1,7 +1,7 @@
 <template>
     <div :class="windowWidth < 602 ? 'float' : ''" id="wrapper">
-        <div v-if="windowWidth < 602" id="menu-button-cont">
-            <div id="menu-container">
+        <div v-if="windowWidth < 602 && !showNav" id="menu-button-cont">
+            <div id="menu-container" :class="showNav ? 'animate' : 'revanimate'">
                 <div id="menu" @click="showNav = !showNav">
                     <MenuIcon class="icon" />
                 </div>
@@ -13,12 +13,24 @@
                     <img src="../assets/logo150.png" class="logo" alt="logo" title="PG150" />
                 </a>
                 <nav id="navbar">
-                    <NavMenuItem class="menu-item" text="Tanítóképző"></NavMenuItem>
-                    <NavMenuItem class="menu-item" text="Testnevelési Gimnázium"></NavMenuItem>
-                    <NavMenuItem class="menu-item" text="Petőfi Gimnázium"></NavMenuItem>
-                    <NavMenuItem class="menu-item" :opens-up="true" text="Gépészeti Szakközépiskola"></NavMenuItem>
-                    <NavMenuItem class="menu-item" :opens-up="true" text="Szent Benedek Technikum"></NavMenuItem>
-                    <NavMenuItem class="menu-item" text="Mozaik" dest="/"></NavMenuItem>
+                    <NavMenuItem :has-sub="true" class="menu-item" text="Tanítóképző" dest="tanito" />
+                    <NavMenuItem :has-sub="true" class="menu-item" text="Testnevelési Gimnázium" dest="testnevelesi" />
+                    <NavMenuItem :has-sub="true" class="menu-item" text="Petőfi Gimnázium" dest="petofi" />
+                    <NavMenuItem
+                        class="menu-item"
+                        :has-sub="true"
+                        :opens-up="true"
+                        text="Gépészeti Szakközépiskola"
+                        dest="gepeszet"
+                    />
+                    <NavMenuItem
+                        class="menu-item"
+                        :has-sub="true"
+                        :opens-up="true"
+                        text="Szent Benedek Technikum"
+                        dest="szentbenedek"
+                    />
+                    <NavMenuItem :has-sub="false" class="menu-item" text="Mozaik" dest="/" />
                 </nav>
             </div>
         </Transition>
