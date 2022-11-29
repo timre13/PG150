@@ -4,19 +4,19 @@
         <Transition name="submenu">
             <div class="submenu offset-color-background" :class="props.opensUp ? 'up' : 'down'" v-if="showSubMenu">
                 <div class="marker main-color-background"></div>
-                <RouterLink :to="`/${props.dest}/emlekek`" class="submenu-item">
+                <RouterLink :to="`/${props.dest}/emlekek`" :key="`/${props.dest}/emlekek`" class="submenu-item">
                     Emlékeink
                     <div class="filter"></div>
                 </RouterLink>
-                <RouterLink :to="`/${props.dest}/osztalyok`" class="submenu-item">
+                <RouterLink :to="`/${props.dest}/osztalyok`" :key="`/${props.dest}/osztalyok`" class="submenu-item">
                     Osztályok
                     <div class="filter"></div>
                 </RouterLink>
-                <RouterLink :to="`/${props.dest}/tablok`" class="submenu-item">
+                <RouterLink :to="`/${props.dest}/tablok`" :key="`/${props.dest}/tablok`" class="submenu-item">
                     Tablók
                     <div class="filter"></div>
                 </RouterLink>
-                <RouterLink :to="`/${props.dest}/videok`" class="submenu-item">
+                <RouterLink :to="`/${props.dest}/videok`" :key="`/${props.dest}/videok`" class="submenu-item">
                     Videók
                     <div class="filter"></div>
                 </RouterLink>

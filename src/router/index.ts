@@ -1,33 +1,32 @@
 import { createRouter, createWebHistory } from "vue-router";
 import IndexView from "../views/IndexView.vue";
+import EmlekekView from "../views/EmlekekView.vue";
+import OsztalyokView from "../views/OsztalyokView.vue";
+import TablokView from "../views/TablokView.vue";
+import VideokView from "../views/VideokView.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
             path: "/",
-            name: "home",
             component: IndexView,
         },
         {
             path: "/:menu/emlekek",
-            name: "Emlekek",
-            component: IndexView,
+            component: EmlekekView,
         },
         {
             path: "/:menu/osztalyok",
-            name: "Emlekek",
-            component: IndexView,
+            component: OsztalyokView,
         },
         {
             path: "/:menu/tablok",
-            name: "Emlekek",
-            component: IndexView,
+            component: TablokView,
         },
         {
             path: "/:menu/videok",
-            name: "Emlekek",
-            component: IndexView,
+            component: VideokView,
         },
     ],
 });
