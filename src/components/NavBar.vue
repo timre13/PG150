@@ -35,6 +35,7 @@
 
     const funct = () => {
         if (showNav.value) showNav.value = false;
+        //console.log("asd");
     };
 
     onMounted(() => {
@@ -54,6 +55,7 @@
 <style lang="scss">
     #wrapper {
         display: flex;
+        flex: 0 0;
         height: 100vh;
         align-items: stretch;
         position: sticky;
@@ -101,7 +103,7 @@
         position: relative;
         width: 10rem;
         height: 100vh;
-        background-color: hsla(0, 0%, 0%, 0.378);
+        background-color: hsl(0, 0%, 80%);
         display: flex;
         flex-direction: column;
         text-align: center;
