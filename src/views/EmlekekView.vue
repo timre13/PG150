@@ -3,8 +3,12 @@
         <main v-if="!doneLoading">
             <h1>Betöltés...</h1>
         </main>
-        <main>
+        <main v-if="doneLoading">
             <h1>{{ route.params.menu }}</h1>
+            <div v-for="item in assets?.items">
+                <p v-if="item.text">{{ item.text }}</p>
+                <img v-if="item.img_src" :src="item.img_src" :title="item.img_title" :alt="item.img_title" />
+            </div>
         </main>
     </div>
 </template>
@@ -56,6 +60,13 @@
                 //margin-top: 2rem;
                 //margin-right: 5rem;
                 text-align: right;
+            }
+
+            img {
+                max-width: 50%;
+                margin-left: 100px;
+                border: 2px solid black;
+                border-radius: 10px;
             }
         }
     }
