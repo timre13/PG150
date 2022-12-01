@@ -9,9 +9,9 @@
         </div>
         <Transition name="slide">
             <div id="navbarcont" v-if="windowWidth > 602 || showNav">
-                <a class="imagecont">
+                <RouterLink class="imagecont" to="/">
                     <img src="../assets/logo150.png" class="logo" alt="logo" title="PG150" />
-                </a>
+                </RouterLink>
                 <nav id="navbar">
                     <NavMenuItem :has-sub="true" class="menu-item" text="Tanítóképző" dest="tanito" />
                     <NavMenuItem :has-sub="true" class="menu-item" text="Testnevelési Gimnázium" dest="testnevelesi" />
