@@ -1,17 +1,27 @@
 <template>
     <div id="content">
+        <main v-if="!doneLoading">
+            <h1>Betöltés...</h1>
+        </main>
         <main>
-            <h1>
-                {{ route.params.menu }}
-            </h1>
+            <h1>{{ route.params.menu }}</h1>
         </main>
     </div>
 </template>
 
 <script setup lang="ts">
+    import { ref } from "vue";
     import { useRoute } from "vue-router";
+    //Ha mindegyik ugyanolyan nevű json file ugyanolyan template alapján müködik
+    import type jsonType from "../assets/page-data/gepeszet/emlekek.json";
+
     const route = useRoute();
-    const assets = import(`../assets/page-data/${route.params.menu}/emlekek.json`);
+    const doneLoading = ref(false);
+    const assets = ref<typeof jsonType>();
+    import(`../assets/page-data/${route.params.menu}/emlekek.json`).then(res => {
+        assets.value = res;
+        doneLoading.value = true;
+    });
 </script>
 
 <style scoped lang="scss">
