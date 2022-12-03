@@ -3,7 +3,7 @@
         <main v-if="!doneLoading">
             <h1>Betöltés...</h1>
         </main>
-        <main v-if="doneLoading">
+        <main v-else>
             <h1>{{ route.params.menu }}</h1>
             <div v-for="item in assets?.items">
                 <p v-if="item.text">{{ item.text }}</p>
