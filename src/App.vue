@@ -22,7 +22,7 @@
 
         .view {
             flex: 1;
-            background-color: hsl(0, 0%, 95%);
+            background-color: hsl(0, 0%, 80%);
         }
     }
 </style>
