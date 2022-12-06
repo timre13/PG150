@@ -4,6 +4,10 @@
         <Transition name="submenu">
             <div class="submenu offset-color-background" :class="props.opensUp ? 'up' : 'down'" v-if="showSubMenu">
                 <div class="marker main-color-background"></div>
+                <RouterLink :to="`/${props.dest}/bevezeto`" :key="`/${props.dest}/bevezeto`" class="submenu-item">
+                    Bevezető
+                    <div class="filter"></div>
+                </RouterLink>
                 <RouterLink :to="`/${props.dest}/emlekek`" :key="`/${props.dest}/emlekek`" class="submenu-item">
                     Emlékeink
                     <div class="filter"></div>

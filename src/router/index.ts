@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory, createWebHistory } from "vue-router";
 import IndexView from "../views/IndexView.vue";
+import BevezetoView from "../views/BevezetoView.vue";
 import EmlekekView from "../views/EmlekekView.vue";
 import OsztalyokView from "../views/OsztalyokView.vue";
 import TablokView from "../views/TablokView.vue";
@@ -11,6 +12,10 @@ const router = createRouter({
         {
             path: "/",
             component: IndexView,
+        },
+        {
+            path: "/:menu/bevezeto",
+            component: BevezetoView,
         },
         {
             path: "/:menu/emlekek",
