@@ -111,6 +111,7 @@
             border-width: 1px 1px 1px 0;
             border-color: black;
             border-style: solid;
+            flex-direction: column;
 
             .marker {
                 content: "";
@@ -125,11 +126,9 @@
 
             &.up {
                 bottom: 0;
-                flex-direction: column-reverse;
             }
             &.down {
                 top: 0;
-                flex-direction: column;
             }
 
             .submenu-item {
