@@ -2,6 +2,7 @@
     import { RouterView, useRoute } from "vue-router";
     import Footer from "./components/Footer.vue";
     import NavBar from "./components/NavBar.vue";
+    import Popup from "./components/Popup.vue";
     const route = useRoute();
 </script>
 
@@ -11,6 +12,7 @@
         <NavBar class="nav" />
     </div>
     <Footer />
+    <Popup></Popup>
 </template>
 
 <style scoped lang="scss">
@@ -23,6 +25,7 @@
         .view {
             flex: 1;
             background-color: hsl(0, 0%, 80%);
+            position: relative;
         }
     }
 </style>
