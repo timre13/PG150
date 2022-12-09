@@ -12,7 +12,7 @@
         <NavBar class="nav" />
     </div>
     <Footer />
-    <Popup></Popup>
+    <Popup />
 </template>
 
 <style scoped lang="scss">
