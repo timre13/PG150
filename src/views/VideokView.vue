@@ -4,7 +4,7 @@
             <h1>Betöltés...</h1>
         </main>
         <main v-else>
-            {{ assets?.title || "Alapértelmezett" }}
+            <h1>{{ assets?.title || "Alapértelmezett" }}</h1>
         </main>
     </div>
 </template>
