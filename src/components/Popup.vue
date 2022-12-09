@@ -16,9 +16,10 @@
 <script setup lang="ts">
     import { ref } from "vue";
 
-    const hide = ref(false);
+    const hide = ref(localStorage.getItem("popup_hidden") != undefined);
     function onPopupBtnClick() {
         hide.value = true;
+        if (localStorage.getItem("popup_hidden") == undefined) localStorage.setItem("popup_hidden", "true");
     }
 </script>
 
