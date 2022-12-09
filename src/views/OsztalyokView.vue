@@ -1,12 +1,27 @@
 <template>
     <div id="content">
-        <main></main>
+        <main v-if="!doneLoading">
+            <h1>Betöltés...</h1>
+        </main>
+        <main v-else>
+            {{ assets?.title || "Alapértelmezett" }}
+        </main>
     </div>
 </template>
 
 <script setup lang="ts">
-    import router from "../router/index";
-    console.log(router.getRoutes());
+    import { ref } from "vue";
+    import { useRoute } from "vue-router";
+    //Ha mindegyik ugyanolyan nevű json file ugyanolyan template alapján müködik
+    import type jsonType from "../assets/page-data/gepeszet/osztalyok.json";
+
+    const route = useRoute();
+    const doneLoading = ref(false);
+    const assets = ref<typeof jsonType>();
+    import(`../assets/page-data/${route.params.menu}/osztalyok.json`).then(res => {
+        assets.value = res;
+        doneLoading.value = true;
+    });
 </script>
 
 <style scoped lang="scss">
