@@ -1,5 +1,5 @@
 <template>
-    <div :iden="props.text" class="cont" @click="onClick">
+    <a @click.prevent href="" :iden="props.text" class="cont" @click="onClick">
         <span class="text"> {{ props.hasSub ? "&blacktriangleleft;" : "" }} {{ props.text }}</span>
         <Transition name="submenu">
             <div class="submenu offset-color-background" :class="props.opensUp ? 'up' : 'down'" v-if="showSubMenu">
@@ -26,7 +26,7 @@
                 </RouterLink>
             </div>
         </Transition>
-    </div>
+    </a>
 </template>
 
 <script setup lang="ts">
@@ -100,6 +100,12 @@
     .cont {
         position: relative;
         user-select: none;
+        text-decoration: none;
+
+        &:focus {
+            outline: none;
+            text-decoration: underline;
+        }
 
         .text {
             pointer-events: none;
@@ -142,6 +148,11 @@
                 color: black;
                 font-weight: 500;
                 text-align: center;
+
+                &:focus {
+                    outline: none;
+                    text-decoration: underline;
+                }
 
                 .filter {
                     position: absolute;
