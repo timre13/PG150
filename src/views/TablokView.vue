@@ -61,6 +61,7 @@
 
         const elem = e.target as HTMLElement;
         currentImage.value = index;
+        const isPhone = window.innerWidth < 602;
 
         const { left: initX, top: initY } = elem.getBoundingClientRect();
 
@@ -71,20 +72,21 @@
         cloned.style.transform = `translate(-50%, -50%)`;
         cloned.style.left = `${initX + cloned.clientWidth / 2}px`;
         cloned.style.top = `${initY + cloned.clientHeight / 2}px`;
-        console.log(cloned.clientWidth, cloned.clientHeight);
+        //console.log(cloned.clientWidth, cloned.clientHeight);
         cloned.style.transition = "all 0.4s ease";
         await new Promise(res => setTimeout(res, 1));
         cloned.style.width = "60%";
-        cloned.style.top = "35%";
+        cloned.style.top = isPhone ? "10%" : "35%";
         cloned.style.left = "50%";
         // scale(${(1000 / 200) * 100}%)
-        cloned.id = "active-tablo";
+        //cloned.id = "active-tablo";
         window.scrollTo({ top: 0, behavior: "smooth" });
         cloned.ontransitionend = e => {
             isAnimating.value = false;
             showImage.value = true;
-            const imageBox = document.getElementById("imagebox")!;
-            const image = document.getElementById("large-image")!;
+            const imageBox = document.getElementById("imagebox");
+            const image = document.getElementById("large-image");
+            if (!imageBox || !image) return;
             // imageBox.style.top = `${image.clientHeight / 2}px`;
             imageBox.style.transform = `translateY(-${image.clientHeight / 2}px)`;
             cloned.remove();
@@ -147,6 +149,7 @@
                     pointer-events: none;
                     position: relative;
                     width: 60%;
+                    min-width: 20rem;
                     display: flex;
                     flex-direction: column;
 
@@ -157,8 +160,10 @@
                     }
 
                     h1 {
-                        position: absolute;
+                        position: fixed;
                         top: 0;
+                        left: 0;
+                        z-index: 10;
                         width: 100%;
                     }
 
@@ -220,6 +225,9 @@
         main {
             text-align: center;
             align-items: flex-start;
+        }
+        #imagebox {
+            top: 10% !important;
         }
     }
 </style>
