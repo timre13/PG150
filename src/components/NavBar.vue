@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-    import { onMounted, onUnmounted, ref } from "vue";
+    import { onMounted, onUnmounted, onUpdated, ref } from "vue";
     import NavMenuItem from "./NavMenuItem.vue";
     import MenuIcon from "./MenuIcon.vue";
 
@@ -47,16 +47,18 @@
 
     const funct = () => {
         if (showNav.value) showNav.value = false;
-        //console.log("asd");
+        console.log("asd");
     };
-
-    onMounted(() => {
+    const mount = () => {
         window.onresize = () => {
             windowWidth.value = window.innerWidth;
         };
         document.querySelector(".view")?.addEventListener("mouseup", funct);
         document.querySelector(".view")?.addEventListener("touchend", funct);
-    });
+    };
+
+    onMounted(mount);
+    onUpdated(mount);
 
     onUnmounted(() => {
         document.querySelector(".view")?.removeEventListener("mouseup", funct);
@@ -80,6 +82,9 @@
     }
     #menu-button-cont {
         height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
