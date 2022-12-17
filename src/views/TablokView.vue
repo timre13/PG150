@@ -12,7 +12,8 @@
                     class="tablo"
                     @click="onTabloClick($event, index)"
                 >
-                    <img :src="item.img_src" :title="item.img_title" :alt="item.img_title" />
+                    <img class="tablo-image" :src="item.img_src" :title="item.img_title" :alt="item.img_title" />
+                    <span>{{ item.img_title }}</span>
                 </div>
             </div>
             <div id="darkoverlay" :class="darkenBackground ? 'transparent' : ''"></div>
@@ -59,20 +60,21 @@
         isAnimating.value = true;
         darkenBackground.value = true;
 
-        const elem = e.target as HTMLElement;
+        const parent = e.target as HTMLElement;
+        const elem = parent.querySelector(".tablo-image");
+        if (!elem) return;
         currentImage.value = index;
         const isPhone = window.innerWidth < 602;
 
         const { left: initX, top: initY } = elem.getBoundingClientRect();
 
-        let cloned = elem.parentNode!.insertBefore(elem.cloneNode(true), elem.nextSibling) as HTMLElement;
+        let cloned = parent.parentNode!.insertBefore(elem.cloneNode(true), parent.nextSibling) as HTMLElement;
 
         cloned.style.position = "absolute";
         cloned.style.zIndex = "1000";
         cloned.style.transform = `translate(-50%, -50%)`;
         cloned.style.left = `${initX + cloned.clientWidth / 2}px`;
         cloned.style.top = `${initY + cloned.clientHeight / 2}px`;
-        //console.log(cloned.clientWidth, cloned.clientHeight);
         cloned.style.transition = "all 0.4s ease";
         await new Promise(res => setTimeout(res, 1));
         cloned.style.width = "60%";
@@ -106,6 +108,7 @@
 
         main {
             max-width: 100%;
+            position: relative;
             padding: 1rem;
             //background-color: rgb(169, 174, 183);
             display: flex;
@@ -212,10 +215,24 @@
                     flex: 1 0;
                     min-width: 20rem;
                     width: 20rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 0.5rem;
+                    border: 0.1rem solid black;
+                    border-radius: 0.4rem;
+                    gap: 0.5rem;
+                    span {
+                        font-weight: bold;
+                        font-size: 1.3rem;
+                    }
                     img {
                         width: 100%;
                         pointer-events: none;
                     }
+                }
+                .tablo-image {
+                    width: 20rem;
                 }
             }
         }
