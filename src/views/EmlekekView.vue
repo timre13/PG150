@@ -17,7 +17,7 @@
     import { ref } from "vue";
     import { useRoute } from "vue-router";
     //Ha mindegyik ugyanolyan nevű json file ugyanolyan template alapján müködik
-    import type jsonType from "../assets/page-data/gepeszet/emlekek.json";
+    import type jsonType from "../assets/page-data/tanito/emlekek.json";
 
     const route = useRoute();
     const doneLoading = ref(false);
