@@ -30,7 +30,7 @@
         background-color: rgb(255, 255, 255);
 
         main {
-            padding: 4rem;
+            padding: 2rem;
             //background-color: rgb(169, 174, 183);
             display: flex;
             flex-direction: column;
