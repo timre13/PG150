@@ -8,7 +8,9 @@
 
 <template>
     <div id="screen">
-        <RouterView :key="route.fullPath" class="view" />
+        <div id="view-container">
+            <RouterView :key="route.fullPath" class="view" />
+        </div>
         <NavBar class="nav" />
     </div>
     <Footer />
@@ -22,8 +24,13 @@
         display: flex;
         align-items: stretch;
 
-        .view {
+        #view-container {
             flex: 1;
+        }
+
+        .view {
+            width: 100%;
+            height: 100%;
             background-color: hsl(0, 0%, 80%);
             position: relative;
         }

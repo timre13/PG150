@@ -49,20 +49,20 @@
         if (showNav.value) showNav.value = false;
         console.log("asd");
     };
+    document.querySelector("#view-container")?.addEventListener("mouseup", funct);
+    document.querySelector("#view-container")?.addEventListener("touchend", funct);
     const mount = () => {
         window.onresize = () => {
             windowWidth.value = window.innerWidth;
         };
-        document.querySelector(".view")?.addEventListener("mouseup", funct);
-        document.querySelector(".view")?.addEventListener("touchend", funct);
     };
 
     onMounted(mount);
     onUpdated(mount);
 
     onUnmounted(() => {
-        document.querySelector(".view")?.removeEventListener("mouseup", funct);
-        document.querySelector(".view")?.removeEventListener("touchend", funct);
+        document.querySelector("#view-container")?.removeEventListener("mouseup", funct);
+        document.querySelector("#view-container")?.removeEventListener("touchend", funct);
     });
 </script>
 
