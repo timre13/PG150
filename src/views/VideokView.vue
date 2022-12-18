@@ -10,14 +10,14 @@
                     <img
                         class="yt-thumbnail"
                         :src="'https://img.youtube.com/vi' + item.url.substring(item.url.lastIndexOf('/')) + '/0.jpg'"
-                        :width="item.width * (1200 / item.width)"
-                        :height="item.height * (1200 / item.width)"
+                        :width="item.width * ((winWidth * 0.8) / item.width)"
+                        :height="item.height * ((winWidth * 0.8) / item.width)"
                         @click="onYoutubeVidClick"
                     />
                     <iframe
                         class="yt-video"
-                        :width="item.width * (1200 / item.width)"
-                        :height="item.height * (1200 / item.width)"
+                        :width="item.width * ((winWidth * 0.8) / item.width)"
+                        :height="item.height * ((winWidth * 0.8) / item.width)"
                         :data-src="item.url"
                         style="display: none"
                         title="YouTube video player"
@@ -44,6 +44,8 @@
         assets.value = res;
         doneLoading.value = true;
     });
+
+    let winWidth = window.innerWidth;
 
     function onYoutubeVidClick(e: MouseEvent) {
         let clicked = e.target as HTMLElement;
