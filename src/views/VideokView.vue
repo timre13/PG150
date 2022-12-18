@@ -5,6 +5,28 @@
         </main>
         <main v-else>
             <h1>{{ assets?.title || "Alapértelmezett" }}</h1>
+            <div v-for="item in assets?.content">
+                <div v-if="item.url && item.url.includes('youtube.com/embed')" class="yt-thumbnail-div">
+                    <img
+                        class="yt-thumbnail"
+                        :src="'https://img.youtube.com/vi' + item.url.substring(item.url.lastIndexOf('/')) + '/0.jpg'"
+                        :width="item.width * (1200 / item.width)"
+                        :height="item.height * (1200 / item.width)"
+                        @click="onYoutubeVidClick"
+                    />
+                    <iframe
+                        class="yt-video"
+                        :width="item.width * (1200 / item.width)"
+                        :height="item.height * (1200 / item.width)"
+                        :data-src="item.url"
+                        style="display: none"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p v-else-if="item.text">{{ item.text }}</p>
+            </div>
         </main>
     </div>
 </template>
@@ -13,7 +35,7 @@
     import { ref } from "vue";
     import { useRoute } from "vue-router";
     //Ha mindegyik ugyanolyan nevű json file ugyanolyan template alapján müködik
-    import type jsonType from "../assets/page-data/gepeszet/videok.json";
+    import type jsonType from "../assets/page-data/tanito/videok.json";
 
     const route = useRoute();
     const doneLoading = ref(false);
@@ -22,6 +44,17 @@
         assets.value = res;
         doneLoading.value = true;
     });
+
+    function onYoutubeVidClick(e: MouseEvent) {
+        let clicked = e.target as HTMLElement;
+        console.log(clicked.parentElement);
+        let parent = clicked.parentElement;
+        clicked.remove();
+        let iframe = parent?.children[0] as HTMLElement;
+        var vidUrl = iframe.getAttribute("data-src") as string;
+        iframe.setAttribute("src", vidUrl);
+        iframe.style.display = "initial";
+    }
 </script>
 
 <style scoped lang="scss">
@@ -49,6 +82,11 @@
                 margin-top: 1.2rem;
                 font-weight: 400;
                 text-align: justify;
+            }
+
+            .yt-thumbnail-div {
+                box-shadow: 5px 5px 15px black;
+                cursor: pointer;
             }
 
             #ending {
