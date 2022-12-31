@@ -4,10 +4,22 @@
             <h1>Betöltés...</h1>
         </main>
         <main v-else>
-            <h1>{{ route.params.menu }}</h1>
-            <div v-for="item in assets?.items">
-                <p v-if="item.text">{{ item.text }}</p>
-                <img v-if="item.img_src" :src="item.img_src" :title="item.img_title" :alt="item.img_title" />
+            <h1>{{ assets?.title || "Alapértelmezett" }}</h1>
+            <div class="paragraph" v-for="(item, index) in assets?.items" :key="index">
+                <p class="text">
+                    <img
+                        :src="item.img_src"
+                        :alt="item.img_title"
+                        :title="item.img_title"
+                        class="image"
+                        :style="
+                            index % 2 == 0
+                                ? { float: 'right', 'margin-left': '0.6rem' }
+                                : { float: 'left', 'margin-right': '0.6rem' }
+                        "
+                    />
+                    {{ item.text }}
+                </p>
             </div>
         </main>
     </div>
@@ -37,8 +49,7 @@
             //background-color: rgb(169, 174, 183);
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
+            align-items: stretch;
             color: rgb(20, 20, 50);
             min-height: 100%;
             height: auto;
@@ -49,32 +60,31 @@
             }
 
             p {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
                 margin-top: 1.2rem;
                 font-weight: 400;
                 text-align: justify;
             }
 
-            #ending {
-                align-self: flex-end;
-                //margin-top: 2rem;
-                //margin-right: 5rem;
-                text-align: right;
-            }
-
-            img {
-                max-width: 50%;
-                margin-left: 100px;
-                border: 2px solid black;
-                border-radius: 10px;
+            .paragraph {
+                margin-bottom: 1.5rem;
+                .text {
+                    float: right;
+                }
+                .image {
+                    width: clamp(1rem, 50%, 35rem);
+                }
             }
         }
     }
 
     @media screen and (max-width: 602px) {
-        main {
+        #content main {
             text-align: center;
-            align-items: flex-start;
+
+            .paragraph .image {
+                width: 100%;
+            }
         }
     }
 </style>
