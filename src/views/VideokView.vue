@@ -14,6 +14,11 @@
                         :height="item.height * ((winWidth * 0.8) / item.width)"
                         @click="onYoutubeVidClick"
                     />
+                    <img
+                        class="yt-play-btn"
+                        src="https://enviro.com/wp-content/uploads/2020/06/Play-Button-copy.png"
+                        @click="onYoutubeVidClick"
+                    />
                     <iframe
                         class="yt-video"
                         :width="item.width * ((winWidth * 0.8) / item.width)"
@@ -49,11 +54,16 @@
 
     function onYoutubeVidClick(e: MouseEvent) {
         let clicked = e.target as HTMLElement;
-        console.log(clicked.parentElement);
         let parent = clicked.parentElement;
-        clicked.remove();
-        let iframe = parent?.children[0] as HTMLElement;
-        var vidUrl = iframe.getAttribute("data-src") as string;
+
+        let thumbnail = parent?.querySelector(".yt-thumbnail");
+        thumbnail?.remove();
+
+        let playBtn = parent?.querySelector(".yt-play-btn");
+        playBtn?.remove();
+
+        let iframe = parent?.querySelector(".yt-video") as HTMLElement;
+        let vidUrl = iframe.getAttribute("data-src") as string;
         iframe.setAttribute("src", vidUrl);
         iframe.style.display = "initial";
     }
@@ -89,6 +99,15 @@
             .yt-thumbnail-div {
                 box-shadow: 5px 5px 15px black;
                 cursor: pointer;
+                position: relative;
+
+                .yt-play-btn {
+                    width: 150px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
             }
 
             #ending {
