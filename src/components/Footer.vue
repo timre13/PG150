@@ -2,15 +2,15 @@
     <footer>
         <div id="columns">
             <div class="column">
-                <a href="">Főoldal</a>
-                <a href="">Tanítóképző</a>
-                <a href="">Testnevelési Gimnázium</a>
-                <a href="">Petőfi Gimnázium</a>
+                <RouterLink to="/">Főoldal</RouterLink>
+                <RouterLink to="/tanito/bevezeto">Tanítóképző</RouterLink>
+                <RouterLink to="/testnevelesi/bevezeto">Testnevelési Gimnázium</RouterLink>
+                <RouterLink to="/petofi/bevezeto">Petőfi Gimnázium</RouterLink>
             </div>
             <div class="column">
-                <a href="">Gépészei szakközépiskola</a>
-                <a href="">Szent Benedek Technikum</a>
-                <a href="">Adatkezelési tájékoztató</a>
+                <RouterLink to="/gepeszet/bevezeto">Gépészeti szakközépiskola</RouterLink>
+                <RouterLink to="/szentbenedek/bevezeto">Szent Benedek Technikum</RouterLink>
+                <RouterLink to="/">Adatkezelési tájékoztató</RouterLink>
             </div>
             <div class="column">
                 <h2>Elérhetőségek</h2>
@@ -30,7 +30,9 @@
     </footer>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+    import { RouterLink } from "vue-router";
+</script>
 
 <style lang="scss" scoped>
     footer {
