@@ -67,6 +67,7 @@
                 .image {
                     width: clamp(1rem, 50%, 35rem);
                     float: left;
+                    margin-right: 1rem;
                 }
             }
         }
