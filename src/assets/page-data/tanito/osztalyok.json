@@ -1,3 +1,41 @@
 {
-    "title": "Osztályaink"
+    "title": "Osztályaink",
+    "items": [
+        {
+            "title": "1999 - 12. C",
+            "img_src": "https://pg150.hu/images/slides/0001.jpg",
+            "img_title": "Osztálykép",
+            "students": ["John Doe", "William Test", "Hello World"]
+        },
+        {
+            "title": "1999 - 12. C",
+            "img_src": "https://pg150.hu/images/slides/0001.jpg",
+            "img_title": "Osztálykép",
+            "students": ["John Doe", "William Test", "Hello World"]
+        },
+        {
+            "title": "1999 - 12. C",
+            "img_src": "https://pg150.hu/images/slides/0001.jpg",
+            "img_title": "Osztálykép",
+            "students": ["John Doe", "William Test", "Hello World"]
+        },
+        {
+            "title": "1999 - 12. C",
+            "img_src": "https://pg150.hu/images/slides/0001.jpg",
+            "img_title": "Osztálykép",
+            "students": ["John Doe", "William Test", "Hello World"]
+        },
+        {
+            "title": "1999 - 12. C",
+            "img_src": "https://pg150.hu/images/slides/0001.jpg",
+            "img_title": "Osztálykép",
+            "students": ["John Doe", "William Test", "Hello World"]
+        },
+        {
+            "title": "1999 - 12. C",
+            "img_src": "https://pg150.hu/images/slides/0001.jpg",
+            "img_title": "Osztálykép",
+            "students": ["John Doe", "William Test", "Hello World"]
+        }
+    ]
 }

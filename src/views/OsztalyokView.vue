@@ -5,6 +5,15 @@
         </main>
         <main v-else>
             <h1>{{ assets?.title || "Alapértelmezett" }}</h1>
+            <div class="paragraph" v-for="(item, index) in assets?.items" :key="index">
+                <h2>{{ item.title }}</h2>
+                <p class="text">
+                    <img :src="item.img_src" :alt="item.img_title" :title="item.img_title" class="image" />
+                    <span v-for="(student, i) in item.students">
+                        {{ student }}<span v-if="i < item.students.length - 1">, </span>
+                    </span>
+                </p>
+            </div>
         </main>
     </div>
 </template>
@@ -13,7 +22,7 @@
     import { ref } from "vue";
     import { useRoute } from "vue-router";
     //Ha mindegyik ugyanolyan nevű json file ugyanolyan template alapján müködik
-    import type jsonType from "../assets/page-data/gepeszet/osztalyok.json";
+    import type jsonType from "../assets/page-data/tanito/osztalyok.json";
 
     const route = useRoute();
     const doneLoading = ref(false);
@@ -33,8 +42,7 @@
             //background-color: rgb(169, 174, 183);
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
+            align-items: stretch;
             color: rgb(20, 20, 50);
             min-height: 100%;
             height: auto;
@@ -45,25 +53,32 @@
             }
 
             p {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
                 margin-top: 1.2rem;
                 font-weight: 400;
                 text-align: justify;
             }
 
-            #ending {
-                align-self: flex-end;
-                //margin-top: 2rem;
-                //margin-right: 5rem;
-                text-align: right;
+            .paragraph {
+                margin-bottom: 1.5rem;
+                .text {
+                    float: right;
+                }
+                .image {
+                    width: clamp(1rem, 50%, 35rem);
+                    float: left;
+                }
             }
         }
     }
 
     @media screen and (max-width: 602px) {
-        main {
+        #content main {
             text-align: center;
-            align-items: flex-start;
+
+            .paragraph .image {
+                width: 100%;
+            }
         }
     }
 </style>
