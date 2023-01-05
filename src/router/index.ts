@@ -5,6 +5,7 @@ import EmlekekView from "../views/EmlekekView.vue";
 import OsztalyokView from "../views/OsztalyokView.vue";
 import TablokView from "../views/TablokView.vue";
 import VideokView from "../views/VideokView.vue";
+import MozaikView from "../views/MozaikView.vue";
 
 const router = createRouter({
     history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,10 @@ const router = createRouter({
         {
             path: "/:menu/videok",
             component: VideokView,
+        },
+        {
+            path: "/mozaik",
+            component: MozaikView,
         },
     ],
 });

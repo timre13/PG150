@@ -30,7 +30,7 @@
                         text="Szent Benedek Technikum"
                         dest="szentbenedek"
                     />
-                    <NavMenuItem :has-sub="false" class="menu-item" text="Mozaik" dest="/" />
+                    <NavMenuItem :has-sub="false" class="menu-item" text="Mozaik" dest="mozaik" />
                 </nav>
             </div>
         </Transition>
