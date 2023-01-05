@@ -99,8 +99,9 @@
         #content main {
             text-align: center;
 
-            .paragraph .image {
-                width: 100%;
+            #item-cont {
+                padding-top: 1rem;
+                justify-content: center;
             }
         }
     }
