@@ -63,17 +63,17 @@
                     max-height: 150px;
                     overflow: hidden;
                     img {
-                        width: 21rem;
+                        width: 20rem;
                         transition: filter 400ms ease-in-out 0ms;
                     }
 
                     .img-descr {
                         font-size: 0.5rem;
-                        //visibility: hidden;
+                        text-align: justify;
                         position: absolute;
-                        z-index: 100;
                         bottom: 0;
                         left: 0;
+                        z-index: 100;
                         height: 150px;
                         padding: 0.4rem 1rem 0 1rem;
                         background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.9));
