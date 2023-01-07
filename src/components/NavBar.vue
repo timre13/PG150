@@ -49,8 +49,8 @@
         if (showNav.value) showNav.value = false;
         console.log("asd");
     };
-    document.querySelector("#view-container")?.addEventListener("mouseup", funct);
-    document.querySelector("#view-container")?.addEventListener("touchend", funct);
+    document.getElementById("view-container")?.addEventListener("mouseup", funct);
+    document.getElementById("view-container")?.addEventListener("touchend", funct);
     const mount = () => {
         window.onresize = () => {
             windowWidth.value = window.innerWidth;
@@ -61,8 +61,8 @@
     onUpdated(mount);
 
     onUnmounted(() => {
-        document.querySelector("#view-container")?.removeEventListener("mouseup", funct);
-        document.querySelector("#view-container")?.removeEventListener("touchend", funct);
+        document.getElementById("view-container")?.removeEventListener("mouseup", funct);
+        document.getElementById("view-container")?.removeEventListener("touchend", funct);
     });
 </script>
 

@@ -73,16 +73,16 @@
 
     const funct = (e: MouseEvent | TouchEvent) => {
         const target = e.target as HTMLElement;
-        if (
-            target.getAttribute("iden") != props.text &&
-            !(
-                target.parentElement?.classList.contains("submenu") ||
-                target.classList.contains("submenu") ||
-                target.classList.contains("filter")
-            )
-        ) {
-            if (showSubMenu.value) showSubMenu.value = false;
-        }
+        // if (
+        //     target.getAttribute("iden") != props.text &&
+        //     !(
+        //         target.parentElement?.classList.contains("submenu") ||
+        //         target.classList.contains("submenu") ||
+        //         target.classList.contains("filter")
+        //     )
+        // ) {
+        if (showSubMenu.value) showSubMenu.value = false;
+        // }
     };
 
     onMounted(() => {
