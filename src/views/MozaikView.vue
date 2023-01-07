@@ -17,14 +17,16 @@
 
 <script setup lang="ts">
     import { ref } from "vue";
-    import type jsonType from "../assets/page-data/mozaik.json";
+    import type jsonType from "../../public/page-data/mozaik.json";
 
     const doneLoading = ref(false);
     const assets = ref<typeof jsonType>();
-    import(`../assets/page-data/mozaik.json`).then(res => {
-        assets.value = res;
-        doneLoading.value = true;
-    });
+    fetch(`page-data/mozaik.json`)
+        .then(res => res.json())
+        .then(body => {
+            assets.value = body;
+            doneLoading.value = true;
+        });
 </script>
 
 <style scoped lang="scss">

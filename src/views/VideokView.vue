@@ -27,6 +27,7 @@
                         style="display: none"
                         title="YouTube video player"
                         frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen
                     ></iframe>
                 </div>
@@ -40,15 +41,17 @@
     import { ref } from "vue";
     import { useRoute } from "vue-router";
     //Ha mindegyik ugyanolyan nevű json file ugyanolyan template alapján müködik
-    import type jsonType from "../assets/page-data/tanito/videok.json";
+    import type jsonType from "../assets/jsonTypes/videok.json";
 
     const route = useRoute();
     const doneLoading = ref(false);
     const assets = ref<typeof jsonType>();
-    import(`../assets/page-data/${route.params.menu}/videok.json`).then(res => {
-        assets.value = res;
-        doneLoading.value = true;
-    });
+    fetch(`page-data/${route.params.menu}/videok.json`)
+        .then(res => res.json())
+        .then(body => {
+            assets.value = body;
+            doneLoading.value = true;
+        });
 
     let winWidth = window.innerWidth;
 

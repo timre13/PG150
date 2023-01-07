@@ -22,15 +22,17 @@
     import { ref } from "vue";
     import { useRoute } from "vue-router";
     //Ha mindegyik ugyanolyan nevű json file ugyanolyan template alapján müködik
-    import type jsonType from "../assets/page-data/tanito/osztalyok.json";
+    import type jsonType from "../assets/jsonTypes/osztalyok.json";
 
     const route = useRoute();
     const doneLoading = ref(false);
     const assets = ref<typeof jsonType>();
-    import(`../assets/page-data/${route.params.menu}/osztalyok.json`).then(res => {
-        assets.value = res;
-        doneLoading.value = true;
-    });
+    fetch(`page-data/${route.params.menu}/osztalyok.json`)
+        .then(res => res.json())
+        .then(body => {
+            assets.value = body;
+            doneLoading.value = true;
+        });
 </script>
 
 <style scoped lang="scss">

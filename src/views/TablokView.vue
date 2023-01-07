@@ -39,15 +39,17 @@
     import { ref } from "vue";
     import { useRoute } from "vue-router";
     //Ha mindegyik ugyanolyan nevű json file ugyanolyan template alapján müködik
-    import type jsonType from "../assets/page-data/tanito/tablok.json";
+    import type jsonType from "../assets/jsonTypes/tablok.json";
 
     const route = useRoute();
     const doneLoading = ref(false);
     const assets = ref<typeof jsonType>();
-    import(`../assets/page-data/${route.params.menu}/tablok.json`).then(res => {
-        assets.value = res;
-        doneLoading.value = true;
-    });
+    fetch(`page-data/${route.params.menu}/tablok.json`)
+        .then(res => res.json())
+        .then(body => {
+            assets.value = body;
+            doneLoading.value = true;
+        });
 
     const isAnimating = ref(false);
 
