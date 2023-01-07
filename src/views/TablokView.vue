@@ -13,7 +13,7 @@
                     @click="onTabloClick($event, index)"
                 >
                     <img class="tablo-image" :src="item.img_src" :title="item.img_title" :alt="item.img_title" />
-                    <span>{{ item.img_title }}</span>
+                    <span class="nocursor">{{ item.img_title }}</span>
                 </div>
             </div>
             <div id="darkoverlay" :class="darkenBackground ? 'transparent' : ''"></div>
@@ -246,5 +246,9 @@
         #imagebox {
             top: 10% !important;
         }
+    }
+
+    .nocursor {
+        pointer-events: none;
     }
 </style>
