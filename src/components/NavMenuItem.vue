@@ -58,7 +58,7 @@
 
     function onClick(e: MouseEvent) {
         if (!props.hasSub) {
-            router.push(props.dest);
+            router.push(`/${props.dest}/`);
             return;
         }
         if (
