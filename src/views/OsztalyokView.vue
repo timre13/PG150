@@ -10,7 +10,7 @@
                 <p class="text">
                     <img :src="item.img_src" :alt="item.img_title" :title="item.img_title" class="image" />
                     <span v-for="(student, i) in item.students">
-                        {{ student }}<span v-if="i < item.students.length - 1">, </span>
+                        {{ student }}<span v-if="i < item.students.length - 1" class="breaker">, </span>
                     </span>
                 </p>
             </div>
@@ -61,6 +61,7 @@
 
             .paragraph {
                 margin-bottom: 1.5rem;
+                padding-right: 20rem;
                 .text {
                     float: right;
                 }
