@@ -70,7 +70,7 @@
                     }
 
                     .img-descr {
-                        font-size: 0.5rem;
+                        font-size: 1rem;
                         text-align: justify;
                         position: absolute;
                         bottom: 0;
