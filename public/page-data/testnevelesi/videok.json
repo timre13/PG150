@@ -1,3 +1,13 @@
 {
-    "title": ""
+    "title": "Videóink",
+    "content": [
+        { "text": "asdfasdfasdf" },
+        {
+            "url": "https://www.youtube.com/embed/ZDW7pumIo48",
+            "width": 560,
+            "height": 315
+        },
+        { "text": "asdfasdfuaijwehfwefiu" },
+        { "url": "https://www.youtube.com/embed/cvCFRGn7EEQ", "width": 560, "height": 315 }
+    ]
 }

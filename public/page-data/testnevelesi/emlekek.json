@@ -1,3 +1,30 @@
 {
-    "title": ""
+    "title": "Emlékeink",
+    "items": [
+        {
+            "img_src": "https://pg150.hu/images/slides/0001.jpg",
+            "img_title": "Kép",
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores odio doloribus autem, repudiandae expedita nam laboriosam sapiente est ad quae, alias aliquam officiis. Mollitia laborum ea autem sit asperiores minima laboriosam aliquam, illum, ex accusantium nostrum, blanditiis recusandae ullam deleniti ab repudiandae eveniet ad voluptate. Praesentium maxime hic fugit quis?Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores odio doloribus autem, repudiandae expedita nam laboriosam sapiente est ad quae, alias aliquam officiis. Mollitia laborum ea autem sit asperiores minima laboriosam aliquam, illum, ex accusantium nostrum, blanditiis recusandae ullam deleniti ab repudiandae eveniet ad voluptate. Praesentium maxime hic fugit quis?Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores odio doloribus autem, repudiandae expedita nam laboriosam sapiente est ad quae, alias aliquam officiis. Mollitia laborum ea autem sit asperiores minima laboriosam aliquam, illum, ex accusantium nostrum, blanditiis recusandae ullam deleniti ab repudiandae eveniet ad voluptate. Praesentium maxime hic fugit quis?Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores odio doloribus autem, repudiandae expedita nam laboriosam sapiente est ad quae, alias aliquam officiis. Mollitia laborum ea autem sit asperiores minima laboriosam aliquam, illum, ex accusantium nostrum, blanditiis recusandae ullam deleniti ab repudiandae eveniet ad voluptate. Praesentium maxime hic fugit quis?Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores odio doloribus autem, repudiandae expedita nam laboriosam sapiente est ad quae, alias aliquam officiis. Mollitia laborum ea autem sit asperiores minima laboriosam aliquam, illum, ex accusantium nostrum, blanditiis recusandae ullam deleniti ab repudiandae eveniet ad voluptate. Praesentium maxime hic fugit quis?"
+        },
+        {
+            "img_src": "https://pg150.hu/images/slides/0002.jpg",
+            "img_title": "Kép",
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores odio doloribus autem, repudiandae expedita nam laboriosam sapiente est ad quae, alias aliquam officiis. Mollitia laborum ea autem sit asperiores minima laboriosam aliquam, illum, ex accusantium nostrum, blanditiis recusandae ullam deleniti ab repudiandae eveniet ad voluptate. Praesentium maxime hic fugit quis?"
+        },
+        {
+            "img_src": "https://pg150.hu/images/slides/0002.jpg",
+            "img_title": "Kép",
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores odio doloribus autem, repudiandae expedita nam laboriosam sapiente est ad quae, alias aliquam officiis. Mollitia laborum ea autem sit asperiores minima laboriosam aliquam, illum, ex accusantium nostrum, blanditiis recusandae ullam deleniti ab repudiandae eveniet ad voluptate. Praesentium maxime hic fugit quis?"
+        },
+        {
+            "img_src": "https://pg150.hu/images/slides/0002.jpg",
+            "img_title": "Kép",
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores odio doloribus autem, repudiandae expedita nam laboriosam sapiente est ad quae, alias aliquam officiis. Mollitia laborum ea autem sit asperiores minima laboriosam aliquam, illum, ex accusantium nostrum, blanditiis recusandae ullam deleniti ab repudiandae eveniet ad voluptate. Praesentium maxime hic fugit quis?"
+        },
+        {
+            "img_src": "https://pg150.hu/images/slides/0002.jpg",
+            "img_title": "Kép",
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores odio doloribus autem, repudiandae expedita nam laboriosam sapiente est ad quae, alias aliquam officiis. Mollitia laborum ea autem sit asperiores minima laboriosam aliquam, illum, ex accusantium nostrum, blanditiis recusandae ullam deleniti ab repudiandae eveniet ad voluptate. Praesentium maxime hic fugit quis?"
+        }
+    ]
 }

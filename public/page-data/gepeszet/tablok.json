@@ -1,3 +1,20 @@
 {
-    "title": ""
+    "title": "Tablóink",
+    "tablok": [
+        {"img_src": "https://pg150.hu/images/slides/0001.jpg", "img_title": "12. K - 3342", "description": "Lorem ipsum dolor sit amet"},
+        {"img_src": "https://pg150.hu/images/slides/0002.jpg", "img_title": "12. E - 4354", "description": "Lorem ipsum dolor sit amet"},
+        {"img_src": "https://pg150.hu/images/slides/0003.jpg", "img_title": "13. D - 6223", "description": "Lorem ipsum dolor sit amet"},
+        {"img_src": "https://pg150.hu/images/slides/0004.jpg", "img_title": "13. C - 6223", "description": "Lorem ipsum dolor sit amet"},
+        {"img_src": "https://pg150.hu/images/slides/0005.jpg", "img_title": "12. A - 6223", "description": "Lorem ipsum dolor sit amet"},
+        {"img_src": "https://pg150.hu/images/slides/0001.jpg", "img_title": "12. K - 3342", "description": "Lorem ipsum dolor sit amet"},
+        {"img_src": "https://pg150.hu/images/slides/0002.jpg", "img_title": "12. E - 4354", "description": "Lorem ipsum dolor sit amet"},
+        {"img_src": "https://pg150.hu/images/slides/0003.jpg", "img_title": "13. D - 6223", "description": "Lorem ipsum dolor sit amet"},
+        {"img_src": "https://pg150.hu/images/slides/0004.jpg", "img_title": "13. C - 6223", "description": "Lorem ipsum dolor sit amet"},
+        {"img_src": "https://pg150.hu/images/slides/0005.jpg", "img_title": "12. A - 6223", "description": "Lorem ipsum dolor sit amet"},
+        {"img_src": "https://pg150.hu/images/slides/0001.jpg", "img_title": "12. K - 3342", "description": "Lorem ipsum dolor sit amet"},
+        {"img_src": "https://pg150.hu/images/slides/0002.jpg", "img_title": "12. E - 4354", "description": "Lorem ipsum dolor sit amet"},
+        {"img_src": "https://pg150.hu/images/slides/0003.jpg", "img_title": "13. D - 6223", "description": "Lorem ipsum dolor sit amet"},
+        {"img_src": "https://pg150.hu/images/slides/0004.jpg", "img_title": "13. C - 6223", "description": "Lorem ipsum dolor sit amet"},
+        {"img_src": "https://pg150.hu/images/slides/0005.jpg", "img_title": "12. A - 6223", "description": "Lorem ipsum dolor sit amet"}
+    ]
 }
