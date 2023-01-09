@@ -49,12 +49,13 @@
         if (showNav.value) showNav.value = false;
         console.log("asd");
     };
-    document.getElementById("view-container")?.addEventListener("mouseup", funct);
-    document.getElementById("view-container")?.addEventListener("touchend", funct);
+
     const mount = () => {
         window.onresize = () => {
             windowWidth.value = window.innerWidth;
         };
+        document.getElementById("view-container")?.addEventListener("mouseup", funct);
+        document.getElementById("view-container")?.addEventListener("touchend", funct);
     };
 
     onMounted(mount);
